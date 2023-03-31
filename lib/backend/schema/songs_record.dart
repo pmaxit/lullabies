@@ -9,23 +9,23 @@ part 'songs_record.g.dart';
 abstract class SongsRecord implements Built<SongsRecord, SongsRecordBuilder> {
   static Serializer<SongsRecord> get serializer => _$songsRecordSerializer;
 
-  String? get cover;
-
   String? get name;
 
-  String? get url;
-
   String? get youtube;
+
+  String? get cover;
+
+  String? get url;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(SongsRecordBuilder builder) => builder
-    ..cover = ''
     ..name = ''
-    ..url = ''
-    ..youtube = '';
+    ..youtube = ''
+    ..cover = ''
+    ..url = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('songs');
@@ -49,19 +49,19 @@ abstract class SongsRecord implements Built<SongsRecord, SongsRecordBuilder> {
 }
 
 Map<String, dynamic> createSongsRecordData({
-  String? cover,
   String? name,
-  String? url,
   String? youtube,
+  String? cover,
+  String? url,
 }) {
   final firestoreData = serializers.toFirestore(
     SongsRecord.serializer,
     SongsRecord(
       (s) => s
-        ..cover = cover
         ..name = name
-        ..url = url
-        ..youtube = youtube,
+        ..youtube = youtube
+        ..cover = cover
+        ..url = url,
     ),
   );
 

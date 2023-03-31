@@ -33,17 +33,17 @@ class _$SongsRecordSerializer implements StructuredSerializer<SongsRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.url;
-    if (value != null) {
-      result
-        ..add('url')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.youtube;
     if (value != null) {
       result
         ..add('youtube')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.url;
+    if (value != null) {
+      result
+        ..add('url')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
@@ -77,12 +77,12 @@ class _$SongsRecordSerializer implements StructuredSerializer<SongsRecord> {
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'url':
-          result.url = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
         case 'youtube':
           result.youtube = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'url':
+          result.url = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
         case 'Document__Reference__Field':
@@ -104,16 +104,16 @@ class _$SongsRecord extends SongsRecord {
   @override
   final String? name;
   @override
-  final String? url;
-  @override
   final String? youtube;
+  @override
+  final String? url;
   @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$SongsRecord([void Function(SongsRecordBuilder)? updates]) =>
       (new SongsRecordBuilder()..update(updates))._build();
 
-  _$SongsRecord._({this.cover, this.name, this.url, this.youtube, this.ffRef})
+  _$SongsRecord._({this.cover, this.name, this.youtube, this.url, this.ffRef})
       : super._();
 
   @override
@@ -129,8 +129,8 @@ class _$SongsRecord extends SongsRecord {
     return other is SongsRecord &&
         cover == other.cover &&
         name == other.name &&
-        url == other.url &&
         youtube == other.youtube &&
+        url == other.url &&
         ffRef == other.ffRef;
   }
 
@@ -139,8 +139,8 @@ class _$SongsRecord extends SongsRecord {
     var _$hash = 0;
     _$hash = $jc(_$hash, cover.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
-    _$hash = $jc(_$hash, url.hashCode);
     _$hash = $jc(_$hash, youtube.hashCode);
+    _$hash = $jc(_$hash, url.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -151,8 +151,8 @@ class _$SongsRecord extends SongsRecord {
     return (newBuiltValueToStringHelper(r'SongsRecord')
           ..add('cover', cover)
           ..add('name', name)
-          ..add('url', url)
           ..add('youtube', youtube)
+          ..add('url', url)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -169,13 +169,13 @@ class SongsRecordBuilder implements Builder<SongsRecord, SongsRecordBuilder> {
   String? get name => _$this._name;
   set name(String? name) => _$this._name = name;
 
-  String? _url;
-  String? get url => _$this._url;
-  set url(String? url) => _$this._url = url;
-
   String? _youtube;
   String? get youtube => _$this._youtube;
   set youtube(String? youtube) => _$this._youtube = youtube;
+
+  String? _url;
+  String? get url => _$this._url;
+  set url(String? url) => _$this._url = url;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -190,8 +190,8 @@ class SongsRecordBuilder implements Builder<SongsRecord, SongsRecordBuilder> {
     if ($v != null) {
       _cover = $v.cover;
       _name = $v.name;
-      _url = $v.url;
       _youtube = $v.youtube;
+      _url = $v.url;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -215,7 +215,7 @@ class SongsRecordBuilder implements Builder<SongsRecord, SongsRecordBuilder> {
   _$SongsRecord _build() {
     final _$result = _$v ??
         new _$SongsRecord._(
-            cover: cover, name: name, url: url, youtube: youtube, ffRef: ffRef);
+            cover: cover, name: name, youtube: youtube, url: url, ffRef: ffRef);
     replace(_$result);
     return _$result;
   }

@@ -57,7 +57,7 @@ class _SongCardWidgetState extends State<SongCardWidget> {
               shape: BoxShape.circle,
             ),
             child: Image.network(
-              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHByb2ZpbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+              widget.song!.cover!,
               fit: BoxFit.fitWidth,
             ),
           ),
@@ -84,50 +84,56 @@ class _SongCardWidgetState extends State<SongCardWidget> {
               ),
             ),
           ),
-          FFButtonWidget(
-            onPressed: () {
-              print('Button pressed ...');
-            },
-            text: 'Play',
-            options: FFButtonOptions(
-              width: 80.0,
-              height: 40.0,
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-              color: FlutterFlowTheme.of(context).primary,
-              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                    fontFamily: 'Poppins',
-                    color: Colors.white,
-                  ),
-              borderSide: BorderSide(
-                color: Colors.transparent,
-                width: 1.0,
+          if (!_model.play!)
+            FFButtonWidget(
+              onPressed: () async {
+                setState(() {
+                  _model.play = true;
+                });
+              },
+              text: 'Play',
+              options: FFButtonOptions(
+                width: 80.0,
+                height: 40.0,
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                color: FlutterFlowTheme.of(context).primary,
+                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                      fontFamily: 'Poppins',
+                      color: Colors.white,
+                    ),
+                borderSide: BorderSide(
+                  color: Colors.transparent,
+                  width: 1.0,
+                ),
+                borderRadius: BorderRadius.circular(8.0),
               ),
-              borderRadius: BorderRadius.circular(8.0),
             ),
-          ),
-          FFButtonWidget(
-            onPressed: () {
-              print('Button pressed ...');
-            },
-            text: 'Pause',
-            options: FFButtonOptions(
-              width: 80.0,
-              height: 40.0,
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-              iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-              color: FlutterFlowTheme.of(context).tertiary,
-              textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                    fontFamily: 'Poppins',
-                    color: Colors.white,
-                  ),
-              borderSide: BorderSide(
-                color: Colors.transparent,
-                width: 1.0,
+          if (_model.play ?? true)
+            FFButtonWidget(
+              onPressed: () async {
+                setState(() {
+                  _model.play = false;
+                });
+              },
+              text: 'Pause',
+              options: FFButtonOptions(
+                width: 80.0,
+                height: 40.0,
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                color: FlutterFlowTheme.of(context).tertiary,
+                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                      fontFamily: 'Poppins',
+                      color: Colors.white,
+                    ),
+                borderSide: BorderSide(
+                  color: Colors.transparent,
+                  width: 1.0,
+                ),
+                borderRadius: BorderRadius.circular(8.0),
               ),
-              borderRadius: BorderRadius.circular(8.0),
             ),
-          ),
         ],
       ),
     );

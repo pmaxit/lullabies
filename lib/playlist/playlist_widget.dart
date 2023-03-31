@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/audiowidget_widget.dart';
 import '/components/song_card_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -90,7 +91,12 @@ class _PlaylistWidgetState extends State<PlaylistWidget> {
           ),
           body: GestureDetector(
             onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-            child: SingleChildScrollView(
+            child: Container(
+              width: double.infinity,
+              height: double.infinity,
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).secondaryBackground,
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -259,6 +265,28 @@ class _PlaylistWidgetState extends State<PlaylistWidget> {
                         },
                       );
                     },
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Divider(
+                        thickness: 3.0,
+                        color: FlutterFlowTheme.of(context).accent4,
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional(0.0, -0.3),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 100.0, 0.0, 0.0),
+                          child: wrapWithModel(
+                            model: _model.audiowidgetModel,
+                            updateCallback: () => setState(() {}),
+                            child: AudiowidgetWidget(),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
