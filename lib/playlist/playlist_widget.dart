@@ -74,21 +74,16 @@ class _PlaylistWidgetState extends State<PlaylistWidget> {
             actions: [
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                child: InkWell(
-                  onTap: () async {
-                    context.pushNamed('profile');
-                  },
-                  child: Container(
-                    width: 50.0,
-                    height: 50.0,
-                    clipBehavior: Clip.antiAlias,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                    ),
-                    child: Image.network(
-                      'https://thumbs.dreamstime.com/b/baby-boy-posing-2607278.jpg',
-                      fit: BoxFit.fitWidth,
-                    ),
+                child: Container(
+                  width: 50.0,
+                  height: 50.0,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                  ),
+                  child: Image.network(
+                    'https://thumbs.dreamstime.com/b/baby-boy-posing-2607278.jpg',
+                    fit: BoxFit.fitWidth,
                   ),
                 ),
               ),
@@ -301,10 +296,10 @@ class _PlaylistWidgetState extends State<PlaylistWidget> {
                                 final audioWidgetSongsRecord = snapshot.data!;
                                 return Container(
                                   width: double.infinity,
-                                  height: 130.0,
+                                  height: 150.0,
                                   child: custom_widgets.AudioWidget(
                                     width: double.infinity,
-                                    height: 130.0,
+                                    height: 150.0,
                                     play: false,
                                     song: audioWidgetSongsRecord,
                                     songs: playlistSongsRecordList

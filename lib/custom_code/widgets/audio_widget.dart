@@ -7,12 +7,15 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import '../../flutter_flow/flutter_flow_icon_button.dart';
+import 'index.dart'; // Imports other custom widgets
+
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../flutter_flow/flutter_flow_widgets.dart';
 
 class AudioWidget extends HookWidget {
-  const AudioWidget({
+  AudioWidget({
     this.width,
     this.height,
     this.song,
@@ -26,93 +29,107 @@ class AudioWidget extends HookWidget {
   final bool? play;
   final List<DocumentReference>? songs;
 
+  double sliderValue = 0;
   @override
   Widget build(BuildContext context) {
     print('building audio widget ');
-    return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(12, 8, 12, 8),
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Container(
-            width: 40,
-            height: 40,
-            clipBehavior: Clip.antiAlias,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-            ),
-            child: Image.network(
-              song!.cover!,
-              fit: BoxFit.fitWidth,
-            ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    song!.name!,
-                    style: FlutterFlowTheme.of(context).titleMedium,
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
-                    child: Text(
-                      'Kashmiri Song',
-                      style: FlutterFlowTheme.of(context).bodySmall,
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        Slider(
+          activeColor: FlutterFlowTheme.of(context).primary,
+          inactiveColor: FlutterFlowTheme.of(context).accent2,
+          min: 0,
+          max: 10,
+          value: sliderValue ??= 0,
+          onChanged: (newValue) {
+            newValue = double.parse(newValue.toStringAsFixed(4));
+          },
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Container(
+                height: 100,
+                child: Stack(
+                  children: [
+                    Align(
+                      alignment: AlignmentDirectional(-0.4, 0),
+                      child: FlutterFlowIconButton(
+                        borderColor: Colors.transparent,
+                        borderRadius: 30,
+                        borderWidth: 1,
+                        buttonSize: 100,
+                        icon: Icon(
+                          Icons.skip_previous,
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          size: 30,
+                        ),
+                        onPressed: () {
+                          print('IconButton pressed ...');
+                        },
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          if (!play!)
-            FFButtonWidget(
-              onPressed: () async {},
-              text: 'Play',
-              options: FFButtonOptions(
-                width: 80,
-                height: 40,
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                color: FlutterFlowTheme.of(context).primary,
-                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                      fontFamily: 'Poppins',
-                      color: Colors.white,
+                    Align(
+                      alignment: AlignmentDirectional(0.05, 0),
+                      child: FlutterFlowIconButton(
+                        borderColor: Colors.transparent,
+                        borderRadius: 30,
+                        borderWidth: 1,
+                        buttonSize: 100,
+                        icon: Icon(
+                          Icons.play_circle_fill,
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          size: 60,
+                        ),
+                        onPressed: () {
+                          print('IconButton pressed ...');
+                        },
+                      ),
                     ),
-                borderSide: BorderSide(
-                  color: Colors.transparent,
-                  width: 1,
+                    Align(
+                      alignment: AlignmentDirectional(0.45, 0),
+                      child: FlutterFlowIconButton(
+                        borderColor: Colors.transparent,
+                        borderRadius: 30,
+                        borderWidth: 1,
+                        buttonSize: 100,
+                        icon: Icon(
+                          Icons.skip_next_sharp,
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          size: 30,
+                        ),
+                        onPressed: () {
+                          print('IconButton pressed ...');
+                        },
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(1, 0),
+                      child: FlutterFlowIconButton(
+                        borderColor: Colors.transparent,
+                        borderRadius: 30,
+                        borderWidth: 1,
+                        buttonSize: 70,
+                        icon: Icon(
+                          Icons.loop_outlined,
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          size: 30,
+                        ),
+                        onPressed: () {
+                          print('IconButton pressed ...');
+                        },
+                      ),
+                    ),
+                  ],
                 ),
-                borderRadius: BorderRadius.circular(8),
               ),
             ),
-          if (play ?? true)
-            FFButtonWidget(
-              onPressed: () async {},
-              text: 'Pause',
-              options: FFButtonOptions(
-                width: 80,
-                height: 40,
-                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                color: FlutterFlowTheme.of(context).tertiary,
-                textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                      fontFamily: 'Poppins',
-                      color: Colors.white,
-                    ),
-                borderSide: BorderSide(
-                  color: Colors.transparent,
-                  width: 1,
-                ),
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
-        ],
-      ),
+          ],
+        ),
+      ],
     );
   }
 }

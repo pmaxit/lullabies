@@ -9,7 +9,7 @@ import 'package:provider/provider.dart';
 class SongCardModel extends FlutterFlowModel {
   ///  Local state fields for this component.
 
-  bool? play;
+  bool? play = true;
 
   /// Initialization and disposal methods.
 
