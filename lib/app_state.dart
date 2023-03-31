@@ -25,7 +25,8 @@ class FFAppState extends ChangeNotifier {
 
   late SharedPreferences prefs;
 
-  DocumentReference? _currentsong;
+  DocumentReference? _currentsong =
+      FirebaseFirestore.instance.doc('/songs/UQOP4feV8RvKcjH4dGD4');
   DocumentReference? get currentsong => _currentsong;
   set currentsong(DocumentReference? _value) {
     _currentsong = _value;
