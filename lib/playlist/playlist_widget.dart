@@ -74,16 +74,21 @@ class _PlaylistWidgetState extends State<PlaylistWidget> {
             actions: [
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                child: Container(
-                  width: 50.0,
-                  height: 50.0,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                  ),
-                  child: Image.network(
-                    'https://thumbs.dreamstime.com/b/baby-boy-posing-2607278.jpg',
-                    fit: BoxFit.fitWidth,
+                child: InkWell(
+                  onTap: () async {
+                    context.pushNamed('profile');
+                  },
+                  child: Container(
+                    width: 50.0,
+                    height: 50.0,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                    ),
+                    child: Image.network(
+                      'https://thumbs.dreamstime.com/b/baby-boy-posing-2607278.jpg',
+                      fit: BoxFit.fitWidth,
+                    ),
                   ),
                 ),
               ),
