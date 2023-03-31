@@ -32,7 +32,7 @@ class FFAppState extends ChangeNotifier {
     _currentsong = _value;
   }
 
-  bool _play = false;
+  bool _play = true;
   bool get play => _play;
   set play(bool _value) {
     _play = _value;
