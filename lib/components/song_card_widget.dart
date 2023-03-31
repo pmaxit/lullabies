@@ -44,6 +44,8 @@ class _SongCardWidgetState extends State<SongCardWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
       child: Row(
@@ -90,6 +92,9 @@ class _SongCardWidgetState extends State<SongCardWidget> {
                 setState(() {
                   _model.play = true;
                 });
+                setState(() {
+                  FFAppState().currentsong = widget.song!.reference;
+                });
               },
               text: 'Play',
               options: FFButtonOptions(
@@ -114,6 +119,9 @@ class _SongCardWidgetState extends State<SongCardWidget> {
               onPressed: () async {
                 setState(() {
                   _model.play = false;
+                });
+                setState(() {
+                  FFAppState().currentsong = widget.song!.reference;
                 });
               },
               text: 'Pause',

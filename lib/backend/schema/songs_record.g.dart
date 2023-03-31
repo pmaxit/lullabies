@@ -19,13 +19,6 @@ class _$SongsRecordSerializer implements StructuredSerializer<SongsRecord> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
-    value = object.cover;
-    if (value != null) {
-      result
-        ..add('cover')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.name;
     if (value != null) {
       result
@@ -37,6 +30,13 @@ class _$SongsRecordSerializer implements StructuredSerializer<SongsRecord> {
     if (value != null) {
       result
         ..add('youtube')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.cover;
+    if (value != null) {
+      result
+        ..add('cover')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
@@ -69,16 +69,16 @@ class _$SongsRecordSerializer implements StructuredSerializer<SongsRecord> {
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'cover':
-          result.cover = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
         case 'name':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
         case 'youtube':
           result.youtube = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'cover':
+          result.cover = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
         case 'url':
@@ -100,11 +100,11 @@ class _$SongsRecordSerializer implements StructuredSerializer<SongsRecord> {
 
 class _$SongsRecord extends SongsRecord {
   @override
-  final String? cover;
-  @override
   final String? name;
   @override
   final String? youtube;
+  @override
+  final String? cover;
   @override
   final String? url;
   @override
@@ -113,7 +113,7 @@ class _$SongsRecord extends SongsRecord {
   factory _$SongsRecord([void Function(SongsRecordBuilder)? updates]) =>
       (new SongsRecordBuilder()..update(updates))._build();
 
-  _$SongsRecord._({this.cover, this.name, this.youtube, this.url, this.ffRef})
+  _$SongsRecord._({this.name, this.youtube, this.cover, this.url, this.ffRef})
       : super._();
 
   @override
@@ -127,9 +127,9 @@ class _$SongsRecord extends SongsRecord {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is SongsRecord &&
-        cover == other.cover &&
         name == other.name &&
         youtube == other.youtube &&
+        cover == other.cover &&
         url == other.url &&
         ffRef == other.ffRef;
   }
@@ -137,9 +137,9 @@ class _$SongsRecord extends SongsRecord {
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, cover.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, youtube.hashCode);
+    _$hash = $jc(_$hash, cover.hashCode);
     _$hash = $jc(_$hash, url.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
@@ -149,9 +149,9 @@ class _$SongsRecord extends SongsRecord {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'SongsRecord')
-          ..add('cover', cover)
           ..add('name', name)
           ..add('youtube', youtube)
+          ..add('cover', cover)
           ..add('url', url)
           ..add('ffRef', ffRef))
         .toString();
@@ -161,10 +161,6 @@ class _$SongsRecord extends SongsRecord {
 class SongsRecordBuilder implements Builder<SongsRecord, SongsRecordBuilder> {
   _$SongsRecord? _$v;
 
-  String? _cover;
-  String? get cover => _$this._cover;
-  set cover(String? cover) => _$this._cover = cover;
-
   String? _name;
   String? get name => _$this._name;
   set name(String? name) => _$this._name = name;
@@ -172,6 +168,10 @@ class SongsRecordBuilder implements Builder<SongsRecord, SongsRecordBuilder> {
   String? _youtube;
   String? get youtube => _$this._youtube;
   set youtube(String? youtube) => _$this._youtube = youtube;
+
+  String? _cover;
+  String? get cover => _$this._cover;
+  set cover(String? cover) => _$this._cover = cover;
 
   String? _url;
   String? get url => _$this._url;
@@ -188,9 +188,9 @@ class SongsRecordBuilder implements Builder<SongsRecord, SongsRecordBuilder> {
   SongsRecordBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _cover = $v.cover;
       _name = $v.name;
       _youtube = $v.youtube;
+      _cover = $v.cover;
       _url = $v.url;
       _ffRef = $v.ffRef;
       _$v = null;
@@ -215,7 +215,7 @@ class SongsRecordBuilder implements Builder<SongsRecord, SongsRecordBuilder> {
   _$SongsRecord _build() {
     final _$result = _$v ??
         new _$SongsRecord._(
-            cover: cover, name: name, youtube: youtube, url: url, ffRef: ffRef);
+            name: name, youtube: youtube, cover: cover, url: url, ffRef: ffRef);
     replace(_$result);
     return _$result;
   }

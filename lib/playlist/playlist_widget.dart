@@ -1,8 +1,8 @@
 import '/backend/backend.dart';
-import '/components/audiowidget_widget.dart';
 import '/components/song_card_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -38,6 +38,8 @@ class _PlaylistWidgetState extends State<PlaylistWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return StreamBuilder<List<SongsRecord>>(
       stream: querySongsRecord(),
       builder: (context, snapshot) {
@@ -266,27 +268,51 @@ class _PlaylistWidgetState extends State<PlaylistWidget> {
                       );
                     },
                   ),
-                  Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Divider(
-                        thickness: 3.0,
-                        color: FlutterFlowTheme.of(context).accent4,
-                      ),
-                      Align(
-                        alignment: AlignmentDirectional(0.0, -0.3),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 100.0, 0.0, 0.0),
-                          child: wrapWithModel(
-                            model: _model.audiowidgetModel,
-                            updateCallback: () => setState(() {}),
-                            child: AudiowidgetWidget(),
+                  Expanded(
+                    child: Stack(
+                      children: [
+                        Container(
+                          height: double.infinity,
+                          decoration: BoxDecoration(),
+                          child: Align(
+                            alignment: AlignmentDirectional(0.0, 1.0),
+                            child: StreamBuilder<SongsRecord>(
+                              stream: SongsRecord.getDocument(
+                                  FFAppState().currentsong!),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                      ),
+                                    ),
+                                  );
+                                }
+                                final audioWidgetSongsRecord = snapshot.data!;
+                                return Container(
+                                  width: double.infinity,
+                                  height: 130.0,
+                                  child: custom_widgets.AudioWidget(
+                                    width: double.infinity,
+                                    height: 130.0,
+                                    play: false,
+                                    song: audioWidgetSongsRecord,
+                                    songs: playlistSongsRecordList
+                                        .map((e) => e.reference)
+                                        .toList(),
+                                  ),
+                                );
+                              },
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),

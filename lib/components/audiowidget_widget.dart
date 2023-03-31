@@ -10,7 +10,16 @@ import 'audiowidget_model.dart';
 export 'audiowidget_model.dart';
 
 class AudiowidgetWidget extends StatefulWidget {
-  const AudiowidgetWidget({Key? key}) : super(key: key);
+  const AudiowidgetWidget({
+    Key? key,
+    this.song,
+    this.play,
+    this.songs,
+  }) : super(key: key);
+
+  final SongsRecord? song;
+  final bool? play;
+  final List<DocumentReference>? songs;
 
   @override
   _AudiowidgetWidgetState createState() => _AudiowidgetWidgetState();
@@ -42,6 +51,8 @@ class _AudiowidgetWidgetState extends State<AudiowidgetWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
