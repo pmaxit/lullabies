@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'index.dart'; // Imports other custom widgets
+
 import '../../flutter_flow/flutter_flow_icon_button.dart';
 import 'index.dart'; // Imports other custom widgets
 
@@ -36,15 +38,37 @@ class AudioWidget extends HookWidget {
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        Slider(
-          activeColor: FlutterFlowTheme.of(context).primary,
-          inactiveColor: FlutterFlowTheme.of(context).accent2,
-          min: 0,
-          max: 10,
-          value: sliderValue ??= 0,
-          onChanged: (newValue) {
-            newValue = double.parse(newValue.toStringAsFixed(4));
-          },
+        Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Slider(
+              activeColor: FlutterFlowTheme.of(context).primary,
+              inactiveColor: FlutterFlowTheme.of(context).accent2,
+              min: 0,
+              max: 10,
+              value: sliderValue ??= 0,
+              onChanged: (newValue) {
+                newValue = double.parse(newValue.toStringAsFixed(4));
+              },
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(18, 0, 23, 0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '00:00',
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                  Text(
+                    '00:09',
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
         Row(
           mainAxisSize: MainAxisSize.max,
@@ -56,7 +80,7 @@ class AudioWidget extends HookWidget {
                 child: Stack(
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(-0.4, 0),
+                      alignment: AlignmentDirectional(-0.45, 0),
                       child: FlutterFlowIconButton(
                         borderColor: Colors.transparent,
                         borderRadius: 30,
@@ -82,7 +106,7 @@ class AudioWidget extends HookWidget {
                         icon: Icon(
                           Icons.play_circle_fill,
                           color: FlutterFlowTheme.of(context).primaryText,
-                          size: 60,
+                          size: 100,
                         ),
                         onPressed: () {
                           print('IconButton pressed ...');
@@ -90,7 +114,7 @@ class AudioWidget extends HookWidget {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.45, 0),
+                      alignment: AlignmentDirectional(0.65, 0),
                       child: FlutterFlowIconButton(
                         borderColor: Colors.transparent,
                         borderRadius: 30,

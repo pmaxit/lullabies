@@ -92,8 +92,9 @@ class _SongCardWidgetState extends State<SongCardWidget> {
                 setState(() {
                   _model.play = true;
                 });
-                setState(() {
+                _model.updatePage(() {
                   FFAppState().currentsong = widget.song!.reference;
+                  FFAppState().play = true;
                 });
               },
               text: 'Play',
@@ -120,8 +121,9 @@ class _SongCardWidgetState extends State<SongCardWidget> {
                 setState(() {
                   _model.play = false;
                 });
-                setState(() {
+                _model.updatePage(() {
                   FFAppState().currentsong = widget.song!.reference;
+                  FFAppState().play = false;
                 });
               },
               text: 'Pause',

@@ -56,16 +56,38 @@ class _AudiowidgetWidgetState extends State<AudiowidgetWidget> {
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        Slider(
-          activeColor: FlutterFlowTheme.of(context).primary,
-          inactiveColor: FlutterFlowTheme.of(context).accent2,
-          min: 0.0,
-          max: 10.0,
-          value: _model.sliderValue ??= 0.0,
-          onChanged: (newValue) {
-            newValue = double.parse(newValue.toStringAsFixed(4));
-            setState(() => _model.sliderValue = newValue);
-          },
+        Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Slider(
+              activeColor: FlutterFlowTheme.of(context).primary,
+              inactiveColor: FlutterFlowTheme.of(context).accent2,
+              min: 0.0,
+              max: 10.0,
+              value: _model.sliderValue ??= 0.0,
+              onChanged: (newValue) {
+                newValue = double.parse(newValue.toStringAsFixed(4));
+                setState(() => _model.sliderValue = newValue);
+              },
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(18.0, 0.0, 23.0, 0.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '00:00',
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                  Text(
+                    '00:09',
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
         Row(
           mainAxisSize: MainAxisSize.max,
@@ -77,7 +99,7 @@ class _AudiowidgetWidgetState extends State<AudiowidgetWidget> {
                 child: Stack(
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(-0.4, 0.0),
+                      alignment: AlignmentDirectional(-0.6, 0.0),
                       child: FlutterFlowIconButton(
                         borderColor: Colors.transparent,
                         borderRadius: 30.0,
@@ -111,7 +133,7 @@ class _AudiowidgetWidgetState extends State<AudiowidgetWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.45, 0.0),
+                      alignment: AlignmentDirectional(0.65, 0.0),
                       child: FlutterFlowIconButton(
                         borderColor: Colors.transparent,
                         borderRadius: 30.0,
