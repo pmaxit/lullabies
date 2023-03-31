@@ -1,10 +1,12 @@
 import '/backend/backend.dart';
 import '/components/song_card_widget.dart';
+import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'playlist_model.dart';
 export 'playlist_model.dart';
@@ -59,37 +61,70 @@ class _PlaylistWidgetState extends State<PlaylistWidget> {
         return Scaffold(
           key: scaffoldKey,
           backgroundColor: Color(0xFFF1F4F8),
-          appBar: AppBar(
-            backgroundColor: Color(0xFFF1F4F8),
-            automaticallyImplyLeading: false,
-            title: Text(
-              'Hi, Ayaansh',
-              style: FlutterFlowTheme.of(context).displaySmall.override(
-                    fontFamily: 'Outfit',
-                    color: Color(0xFF0F1113),
-                    fontSize: 32.0,
-                    fontWeight: FontWeight.w500,
-                  ),
-            ),
-            actions: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                child: Container(
-                  width: 50.0,
-                  height: 50.0,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                  ),
-                  child: Image.network(
-                    'https://thumbs.dreamstime.com/b/baby-boy-posing-2607278.jpg',
-                    fit: BoxFit.fitWidth,
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(80.0),
+            child: AppBar(
+              backgroundColor: Color(0xFFF1F4F8),
+              automaticallyImplyLeading: false,
+              title: Align(
+                alignment: AlignmentDirectional(-1.0, 0.2),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  child: Text(
+                    'Hi, Ayaansh',
+                    textAlign: TextAlign.start,
+                    style: FlutterFlowTheme.of(context).displaySmall.override(
+                          fontFamily: 'Outfit',
+                          color: Color(0xFF0F1113),
+                          fontSize: 32.0,
+                          fontWeight: FontWeight.w500,
+                        ),
                   ),
                 ),
               ),
-            ],
-            centerTitle: false,
-            elevation: 0.0,
+              actions: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 16.0, 0.0),
+                  child: InkWell(
+                    onTap: () async {
+                      await Navigator.push(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.fade,
+                          child: FlutterFlowExpandedImageView(
+                            image: Image.network(
+                              'https://thumbs.dreamstime.com/b/baby-boy-posing-2607278.jpg',
+                              fit: BoxFit.contain,
+                            ),
+                            allowRotation: false,
+                            tag: 'Ayaansh',
+                            useHeroAnimation: true,
+                          ),
+                        ),
+                      );
+                    },
+                    child: Hero(
+                      tag: 'Ayaansh',
+                      transitionOnUserGestures: true,
+                      child: Container(
+                        width: 70.0,
+                        height: 70.0,
+                        clipBehavior: Clip.antiAlias,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: Image.network(
+                          'https://thumbs.dreamstime.com/b/baby-boy-posing-2607278.jpg',
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+              centerTitle: false,
+              elevation: 0.0,
+            ),
           ),
           body: GestureDetector(
             onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
