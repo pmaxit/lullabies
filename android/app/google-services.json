@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "89989267242",
+    "project_id": "fir-flutterflow-f5e2f",
+    "storage_bucket": "fir-flutterflow-f5e2f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:89989267242:android:1b9fd7416c54ce09736853",
+        "android_client_info": {
+          "package_name": "com.mycompany.ayaansh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "89989267242-gtsr89qlj8uiuec4ged3495or19be1v7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.ayaansh",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "89989267242-9jjuescd7t3v3v8pgqqpa9q1tukvpk6a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvSLag47J478Eop0gVLOuXEXnTcZklZhs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "89989267242-9jjuescd7t3v3v8pgqqpa9q1tukvpk6a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "89989267242-h5ughibpvv68fmvbeut64otarsshek0n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.lullabies"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:89989267242:android:5e09f7a90e11ce56736853",
+        "android_client_info": {
+          "package_name": "com.mycompany.lullabies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "89989267242-9jjuescd7t3v3v8pgqqpa9q1tukvpk6a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvSLag47J478Eop0gVLOuXEXnTcZklZhs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "89989267242-9jjuescd7t3v3v8pgqqpa9q1tukvpk6a.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "89989267242-h5ughibpvv68fmvbeut64otarsshek0n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.lullabies"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
