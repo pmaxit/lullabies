@@ -27,7 +27,7 @@ DocumentReference getNextSong(
 
   // get next song
   final nextSong = songs[(index + 1) % (songs.length)];
-  return song;
+  return nextSong;
 }
 
 DocumentReference getPreviousSong(

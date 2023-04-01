@@ -125,9 +125,9 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
+      'Playlist': PlaylistWidget(),
       'HomeScreen': HomeScreenWidget(),
       'profile': ProfileWidget(),
-      'Playlist': PlaylistWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
     return Scaffold(
@@ -147,8 +147,16 @@ class _NavBarPageState extends State<NavBarPage> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.home_outlined,
-              size: 24.0,
+              Icons.library_music,
+              size: 32.0,
+            ),
+            label: 'Home',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.bar_chart,
+              size: 32.0,
             ),
             label: 'Home',
             tooltip: '',
@@ -156,17 +164,9 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.person,
-              size: 24.0,
-            ),
-            label: '__',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.playlist_play_sharp,
               size: 32.0,
             ),
-            label: 'Home',
+            label: '__',
             tooltip: '',
           )
         ],
