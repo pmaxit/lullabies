@@ -93,8 +93,8 @@ class _PlaylistWidgetState extends State<PlaylistWidget> {
                         PageTransition(
                           type: PageTransitionType.fade,
                           child: FlutterFlowExpandedImageView(
-                            image: Image.network(
-                              'https://thumbs.dreamstime.com/b/baby-boy-posing-2607278.jpg',
+                            image: Image.asset(
+                              'assets/images/0330A69E-E3EC-4CBD-8476-5F01B88F0D3B.jpeg',
                               fit: BoxFit.contain,
                             ),
                             allowRotation: false,
@@ -114,8 +114,8 @@ class _PlaylistWidgetState extends State<PlaylistWidget> {
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                         ),
-                        child: Image.network(
-                          'https://thumbs.dreamstime.com/b/baby-boy-posing-2607278.jpg',
+                        child: Image.asset(
+                          'assets/images/0330A69E-E3EC-4CBD-8476-5F01B88F0D3B.jpeg',
                           fit: BoxFit.contain,
                         ),
                       ),
