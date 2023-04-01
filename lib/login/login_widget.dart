@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'login_model.dart';
@@ -26,6 +27,11 @@ class _LoginWidgetState extends State<LoginWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LoginModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      context.pushNamed('register');
+    });
   }
 
   @override
@@ -294,7 +300,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 16.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('HomeScreen');
+                    context.pushNamed('register');
                   },
                   text: 'Login',
                   options: FFButtonOptions(
