@@ -320,15 +320,16 @@ class _PlaylistWidgetState extends State<PlaylistWidget> {
                                 final audioWidgetSongsRecord = snapshot.data!;
                                 return Container(
                                   width: double.infinity,
-                                  height: 180.0,
+                                  height: 240.0,
                                   child: custom_widgets.AudioWidget(
                                     width: double.infinity,
-                                    height: 180.0,
+                                    height: 240.0,
                                     play: FFAppState().play,
                                     song: audioWidgetSongsRecord,
                                     songs: playlistSongsRecordList
                                         .map((e) => e.reference)
                                         .toList(),
+                                    loop: false,
                                   ),
                                 );
                               },
