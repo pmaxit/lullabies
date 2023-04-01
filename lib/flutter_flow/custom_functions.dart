@@ -16,7 +16,7 @@ bool isPlaying(
   DocumentReference song,
   bool play,
 ) {
-  return !play || song == currentSong;
+  return play && song == currentSong;
 }
 
 DocumentReference getNextSong(
