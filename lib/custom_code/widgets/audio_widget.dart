@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 
 import 'index.dart'; // Imports other custom widgets
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'package:just_audio/just_audio.dart';
 
 import 'index.dart'; // Imports other custom widgets
@@ -232,14 +234,15 @@ class AudioWidget extends HookWidget {
                         buttonSize: 70,
                         icon: loop.value
                             ? Icon(
-                                Icons.repeat,
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                size: 30,
+                                Icons.repeat_one_on_rounded,
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                size: 40,
                               )
                             : Icon(
-                                Icons.repeat_one,
+                                Icons.repeat,
                                 color: FlutterFlowTheme.of(context).primaryText,
-                                size: 30,
+                                size: 40,
                               ),
                         onPressed: () {
                           loop.value = !loop.value;
