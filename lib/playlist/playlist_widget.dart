@@ -182,7 +182,7 @@ class _PlaylistWidgetState extends State<PlaylistWidget> {
                           BoxShadow(
                             blurRadius: 8.0,
                             color: Color(0x34090F13),
-                            offset: Offset(0.0, 4.0),
+                            offset: Offset(0.0, 8.0),
                           )
                         ],
                         borderRadius: BorderRadius.circular(16.0),

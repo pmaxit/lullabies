@@ -367,7 +367,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                     await signOut();
                     GoRouter.of(context).clearRedirectLocation();
 
-                    context.goNamedAuth('login', mounted);
+                    context.goNamedAuth('Playlist', mounted);
                   },
                   text: 'Log Out',
                   options: FFButtonOptions(
