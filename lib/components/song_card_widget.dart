@@ -91,7 +91,7 @@ class _SongCardWidgetState extends State<SongCardWidget> {
           if (!widget.play!)
             FFButtonWidget(
               onPressed: () async {
-                _model.updatePage(() {
+                FFAppState().update(() {
                   FFAppState().currentsong = widget.song!.reference;
                   FFAppState().play = true;
                 });
@@ -117,7 +117,7 @@ class _SongCardWidgetState extends State<SongCardWidget> {
           if (widget.play ?? true)
             FFButtonWidget(
               onPressed: () async {
-                _model.updatePage(() {
+                FFAppState().update(() {
                   FFAppState().currentsong = widget.song!.reference;
                   FFAppState().play = false;
                 });
