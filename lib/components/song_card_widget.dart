@@ -12,9 +12,11 @@ class SongCardWidget extends StatefulWidget {
   const SongCardWidget({
     Key? key,
     this.song,
+    this.play,
   }) : super(key: key);
 
   final SongsRecord? song;
+  final bool? play;
 
   @override
   _SongCardWidgetState createState() => _SongCardWidgetState();
@@ -86,12 +88,9 @@ class _SongCardWidgetState extends State<SongCardWidget> {
               ),
             ),
           ),
-          if (!_model.play!)
+          if (!widget.play!)
             FFButtonWidget(
               onPressed: () async {
-                setState(() {
-                  _model.play = true;
-                });
                 _model.updatePage(() {
                   FFAppState().currentsong = widget.song!.reference;
                   FFAppState().play = true;
@@ -115,12 +114,9 @@ class _SongCardWidgetState extends State<SongCardWidget> {
                 borderRadius: BorderRadius.circular(8.0),
               ),
             ),
-          if (_model.play ?? true)
+          if (widget.play ?? true)
             FFButtonWidget(
               onPressed: () async {
-                setState(() {
-                  _model.play = false;
-                });
                 _model.updatePage(() {
                   FFAppState().currentsong = widget.song!.reference;
                   FFAppState().play = false;

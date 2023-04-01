@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
@@ -298,6 +299,8 @@ class _PlaylistWidgetState extends State<PlaylistWidget> {
                           return SongCardWidget(
                             key: Key('Keyrsv_${songIndex}_of_${song.length}'),
                             song: songItem,
+                            play: functions.isPlaying(FFAppState().currentsong!,
+                                songItem.reference, FFAppState().play),
                           );
                         },
                       );
