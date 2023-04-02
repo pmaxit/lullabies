@@ -302,6 +302,66 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                         ),
                       ),
                     ),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 30.0, 0.0, 0.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              GoRouter.of(context).prepareAuthEvent();
+                              if (_model.passwordController.text !=
+                                  _model.passwordConfirmController.text) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      'Passwords don\'t match!',
+                                    ),
+                                  ),
+                                );
+                                return;
+                              }
+
+                              final user = await createAccountWithEmail(
+                                context,
+                                _model.emailAddressController.text,
+                                _model.passwordController.text,
+                              );
+                              if (user == null) {
+                                return;
+                              }
+
+                              context.goNamedAuth('Playlist', mounted);
+                            },
+                            text: 'Get Started',
+                            options: FFButtonOptions(
+                              width: 230.0,
+                              height: 50.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: Color(0xFF4B39EF),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Lexend Deca',
+                                    color: Colors.white,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                              elevation: 2.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
