@@ -166,7 +166,7 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.person,
               size: 32.0,
             ),
-            label: '__',
+            label: 'Profile',
             tooltip: '',
           )
         ],

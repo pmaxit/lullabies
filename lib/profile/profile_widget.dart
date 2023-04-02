@@ -85,9 +85,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
                   padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(0.0),
-                    child: CachedNetworkImage(
-                      imageUrl:
-                          'https://thumbs.dreamstime.com/b/baby-boy-posing-2607278.jpg',
+                    child: Image.asset(
+                      'assets/images/0330A69E-E3EC-4CBD-8476-5F01B88F0D3B.jpeg',
                       width: 100.0,
                       height: 100.0,
                       fit: BoxFit.cover,
@@ -140,7 +139,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                           padding: EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
                           child: Icon(
-                            Icons.power_settings_new_rounded,
+                            Icons.play_circle_outline_rounded,
                             color: FlutterFlowTheme.of(context).primaryText,
                             size: 24.0,
                           ),
@@ -153,7 +152,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                   () => _model.switchListTileValue = newValue!);
                             },
                             title: Text(
-                              'Active',
+                              'Play on Start',
                               style: FlutterFlowTheme.of(context).bodySmall,
                             ),
                             tileColor: FlutterFlowTheme.of(context)
